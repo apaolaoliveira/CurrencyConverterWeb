@@ -11,5 +11,59 @@
   <title>Currency Converter</title>
 </head>
 <body>
+  <div class="card">
+    <header>
+      <i class="fas fa-money"></i>
+      <h1>Currency Converter</h1>
+    </header>
+
+    <form action="#">
+      <div class="amount">
+        <label for="amount">Enter amount</label>
+        <input id="amount" type="number" placeholder="Amount">
+      </div>
+
+      <div class="drop-list">
+        <div class="from">
+          <label for="from">From</label>
+          
+          <div class="select-box">
+            <img src="https://flagsapi.com/US/flat/64.png" alt="country flag">
+
+            <select id="from">
+              <option value="EUR">EUR</option>
+              <option value="USD">USD</option>
+              <option value="GBP">GBP</option>
+              <option value="CAD">CAD</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="icon">
+          <i class="fas fa-exchange-alt"></i>
+        </div>
+
+        <div class="to">
+          <label for="to">To</label>
+          
+          <div class="select-box">
+            <img src="https://flagsapi.com/BE/flat/64.png" alt="country flag">
+
+            <select id="to">
+              <option value="EUR">EUR</option>
+              <option value="USD">USD</option>
+              <option value="GBP">GBP</option>
+            </select>  
+          </div>
+        </div>
+      </div>
+
+      <div class="exchage-rate">
+        <p id="result"></p>
+      </div>
+      
+      <button type="submit">Convert</button>
+    </form>
+  </div>
 </body>
 </html>

@@ -19,6 +19,7 @@
 
 body {
   background-color: var(--neutral-2);
+  color: var(--neutral-2);
   font-family: var(--base-font);
   font-size: 1.6rem;
 }
