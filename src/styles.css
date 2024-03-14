@@ -10,16 +10,127 @@
   font-size: 62.5%;
   --base-font: 'Poppins', sans-serif;
 
-  --primary-1: #76ABAE;
-  --primary-2: #31363F;
+  --primary-1: #72adaf;
+  --primary-2: #5cabb1e8;
+  --primary-3: #31363F;
   
   --neutral-0: #222831;
-  --neutral-2: #EEEEEE;
+  --neutral-1: #EEEEEE;
 }
 
 body {
-  background-color: var(--neutral-2);
-  color: var(--neutral-2);
+  background-color: var(--neutral-1);
+  color: var(--neutral-1);
   font-family: var(--base-font);
   font-size: 1.6rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.card {
+  background-color: var(--primary-3);
+  border-radius: 1.5rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
+  padding: 3rem;;
+}
+
+.title {
+  font-weight: 600;
+  text-align: center;
+}
+
+.card form {
+  margin: 4rem 0;
+}
+
+.card input, select, button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: var(--neutral-1);
+}
+
+.amount input, .select-wrapper {
+  border: .3rem solid var(--primary-1);
+  border-radius: 1.5rem;
+  padding: 1rem;
+  outline: none;
+}
+
+.amount input {
+  font-size: 1.6rem;
+}
+
+.card form input:focus, 
+.select-wrapper:focus-within, 
+button:focus {
+  border: .3rem solid var(--neutral-1) !important;
+}
+
+.select-wrapper img {
+  width: 3.5rem;
+}
+
+.select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.select-wrapper select {
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+option {
+  color: var(--neutral-0);
+  font-size: 1.6rem;
+}
+
+.amount {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+}
+
+.drop-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon-exchange {
+  margin-top: 4rem;
+  cursor: pointer;
+}
+
+.exchange-rate p {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+#convert {
+  background-color: var(--primary-1);
+  border: .3rem solid var(--primary-1);
+  border-radius: 1.5rem;
+  padding: 1.5rem 3rem;
+
+  font-size: 1.8rem;
+  font-weight: 600;
+
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color .4s ease;
+}
+
+#convert:hover {
+  border: .3rem solid var(--primary-2);
+  background-color: var(--primary-2);
 }

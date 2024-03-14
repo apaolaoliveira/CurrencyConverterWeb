@@ -12,14 +12,13 @@
 </head>
 <body>
   <div class="card">
-    <header>
-      <i class="fas fa-money"></i>
-      <h1>Currency Converter</h1>
+    <header aria-labelledby="title">
+      <h1 class="title">Currency Converter</h1>
     </header>
 
     <form action="#">
       <div class="amount">
-        <label for="amount">Enter amount</label>
+        <label for="amount">Enter amount:</label>
         <input id="amount" type="number" placeholder="Amount">
       </div>
 
@@ -27,7 +26,7 @@
         <div class="from">
           <label for="from">From</label>
           
-          <div class="select-box">
+          <div class="select-wrapper">
             <img src="https://flagsapi.com/US/flat/64.png" alt="country flag">
 
             <select id="from">
@@ -39,14 +38,14 @@
           </div>
         </div>
 
-        <div class="icon">
+        <div class="icon-exchange">
           <i class="fas fa-exchange-alt"></i>
         </div>
 
         <div class="to">
           <label for="to">To</label>
           
-          <div class="select-box">
+          <div class="select-wrapper">
             <img src="https://flagsapi.com/BE/flat/64.png" alt="country flag">
 
             <select id="to">
@@ -57,13 +56,15 @@
           </div>
         </div>
       </div>
-
-      <div class="exchage-rate">
-        <p id="result"></p>
-      </div>
-      
-      <button type="submit">Convert</button>
     </form>
+
+    <footer>
+      <div class="exchange-rate">
+        <p id="result">R$1,00 = $5,00</p>
+      </div>
+
+      <button id="convert" type="submit">Convert</button>
+    </footer>
   </div>
 </body>
 </html>
