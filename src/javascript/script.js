@@ -7,6 +7,7 @@ class CurrencyConverter {
   toCurrency = document.querySelector('#to');
   amount = document.querySelector('#amount');
 
+  btnReverse = document.querySelector('#reverse');
   btnConvert = document.querySelector('#convert');
   result = document.querySelector('#result');
 
@@ -40,6 +41,13 @@ class CurrencyConverter {
     this.currenciesSelects.forEach(select => {
       select.addEventListener('change', e => this.loadFlag(e.target));
     });
+
+    this.btnReverse.addEventListener('click', () => {
+      [this.fromCurrency.value, this.toCurrency.value] = 
+        [this.toCurrency.value, this.fromCurrency.value];
+      this.loadFlag(this.fromCurrency);
+      this.loadFlag(this.toCurrency);
+    });
   }
 
   convertCurrencies(amount) {
@@ -55,15 +63,18 @@ class CurrencyConverter {
         let conversion = Math.floor(Number(amount) * exchangeRate * 100) / 100;
 
         let userLocale = navigator.language;
-        let formattedAmount = new Intl.NumberFormat(userLocale, { style: 'currency', currency: this.fromCurrency.value }).format(amount);
-        let formattedConversion = new Intl.NumberFormat(userLocale, { style: 'currency', currency: this.toCurrency.value }).format(conversion);
+        let formattedAmount = new Intl
+          .NumberFormat(userLocale, { style: 'currency', currency: this.fromCurrency.value })
+          .format(amount);
+        let formattedConversion = new Intl
+          .NumberFormat(userLocale, { style: 'currency', currency: this.toCurrency.value })
+          .format(conversion);
 
         this.result.innerText = `${formattedAmount} = ${formattedConversion}`;
       });
   }
 
   loadFlag(element) {
-    console.log('entrei' + element)
     for (const code in countryList){
       if(code == element.value) {
         let imgTag = element.parentElement.querySelector('img');
