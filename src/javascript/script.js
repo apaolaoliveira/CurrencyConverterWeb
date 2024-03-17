@@ -14,6 +14,7 @@ class CurrencyConverter {
     // default 
     this.fromCurrency.value = 'USD';
     this.toCurrency.value = 'BRL';
+    this.result.innerText = this.ConvertCurrencies(this.amount.value);
 
     this.btnConvert.addEventListener('click', () => this.ConvertCurrencies(this.amount.value));
   }
@@ -37,9 +38,14 @@ class CurrencyConverter {
     fetch(`${this.apiRequest}${this.fromCurrency.value}`)
       .then((res) => res.json())
       .then((data) => {
-        let conversion = Number(amount) * data.conversion_rates[this.toCurrency.value];
-        this.result.innerText = 
-          `${amount} ${this.fromCurrency.value} = ${conversion} ${this.toCurrency.value}`;
+        let exchangeRate = data.conversion_rates[this.toCurrency.value];
+        let conversion = Math.floor(Number(amount) * exchangeRate * 100) / 100;
+
+        let userLocale = navigator.language;
+        let formattedAmount = new Intl.NumberFormat(userLocale, { style: 'currency', currency: this.fromCurrency.value }).format(amount);
+        let formattedConversion = new Intl.NumberFormat(userLocale, { style: 'currency', currency: this.toCurrency.value }).format(conversion);
+
+        this.result.innerText = `${formattedAmount} = ${formattedConversion}`;
       });
   }
 }

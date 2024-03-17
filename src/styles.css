@@ -43,7 +43,7 @@ body {
 }
 
 .card form {
-  margin: 4rem 0;
+  margin: 3rem 0;
 }
 
 .card input, select, button {
@@ -107,8 +107,7 @@ option {
 .amount {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
-  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .drop-list {
@@ -118,7 +117,7 @@ option {
 }
 
 .icon-exchange {
-  margin-top: 4rem;
+  margin-top: 3rem;
   cursor: pointer;
 }
 
@@ -126,7 +125,7 @@ option {
   font-size: 2rem;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 #convert {
