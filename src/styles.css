@@ -86,6 +86,19 @@ button:focus {
   cursor: pointer;
 }
 
+.select-wrapper select::-webkit-scrollbar {
+  width: .7rem;
+}
+
+.select-wrapper select::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.select-wrapper select::-webkit-scrollbar-thumb {
+  background: var(--primary-1);
+  border-radius: 1rem;
+}
+
 option {
   color: var(--neutral-0);
   font-size: 1.6rem;
