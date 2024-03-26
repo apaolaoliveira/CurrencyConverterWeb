@@ -1,3 +1,6 @@
+import { API_KEY } from "./api-key.js";
+import { countryList } from "./country-list.js";
+
 class CurrencyConverter {
   apiExchangeRate = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/`;
   apiFlags = 'https://flagsapi.com/';
