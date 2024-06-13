@@ -48,9 +48,9 @@ class CurrencyConverter {
     this.btnReverse.addEventListener('click', () => {
       [this.fromCurrency.value, this.toCurrency.value] = 
         [this.toCurrency.value, this.fromCurrency.value];
+      this.convertCurrencies(this.amount.value);
       this.loadFlag(this.fromCurrency);
       this.loadFlag(this.toCurrency);
-      this.convertCurrencies(this.amount.value);
     });
   }
 
@@ -62,20 +62,21 @@ class CurrencyConverter {
 
     fetch(`${this.apiExchangeRate}${this.fromCurrency.value}`)
       .then((res) => res.json())
-      .then((data) => {
-        let exchangeRate = data.conversion_rates[this.toCurrency.value];
-        let conversion = Math.floor(Number(amount) * exchangeRate * 100) / 100;
+      .then((data) => this.calculateExchange(data.conversion_rates[this.toCurrency.value], amount));
+  }
 
-        let userLocale = navigator.language;
-        let formattedAmount = new Intl
-          .NumberFormat(userLocale, { style: 'currency', currency: this.fromCurrency.value })
-          .format(amount);
-        let formattedConversion = new Intl
-          .NumberFormat(userLocale, { style: 'currency', currency: this.toCurrency.value })
-          .format(conversion);
+  calculateExchange(exchangeRate, amount){
+    let conversion = Math.floor(Number(amount) * exchangeRate * 100) / 100;
 
-        this.result.innerText = `${formattedAmount} = ${formattedConversion}`;
-      });
+    let userLocale = navigator.language;
+    let formattedAmount = new Intl
+      .NumberFormat(userLocale, { style: 'currency', currency: this.fromCurrency.value })
+      .format(amount);
+    let formattedConversion = new Intl
+      .NumberFormat(userLocale, { style: 'currency', currency: this.toCurrency.value })
+      .format(conversion);
+
+    this.result.innerText = `${formattedAmount} = ${formattedConversion}`;
   }
 
   loadFlag(element) {
