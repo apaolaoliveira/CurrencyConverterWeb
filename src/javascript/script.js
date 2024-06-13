@@ -50,6 +50,7 @@ class CurrencyConverter {
         [this.toCurrency.value, this.fromCurrency.value];
       this.loadFlag(this.fromCurrency);
       this.loadFlag(this.toCurrency);
+      this.convertCurrencies(this.amount.value);
     });
   }
 
